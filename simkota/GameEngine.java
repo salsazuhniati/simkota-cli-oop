@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -8,122 +7,141 @@ public class GameEngine {
     private Scanner scanner;
     private int rondeSekarang;
     private final int MAX_RONDE = 15;
-
-    // Penyimpan riwayat skor & peringkat selama sesi aplikasi berjalan
-    private static final ArrayList<String[]> leaderboard = new ArrayList<>();
+    private static ArrayList<String[]> leaderboard = new ArrayList<>();
 
     public GameEngine(String namaWaliKota, String namaKota) {
-        WaliKota player = new WaliKota(namaWaliKota);
-        this.kota = new Kota(namaKota, player);
+        WaliKota waliKota = new WaliKota(namaWaliKota);
+        this.kota = new Kota(namaKota, waliKota);
         this.scanner = new Scanner(System.in);
         this.rondeSekarang = 1;
     }
 
     public void mulaiGame() {
-        System.out.println("=== SELAMAT DATANG DI SIMKOTA CLI: ULTIMATE METROPOLIS (80+ BANGUNAN) ===");
-        System.out.println("Target Menang (Ronde " + MAX_RONDE + "): Populasi >= 1000, Kebahagiaan >= 65%, Skor SDM >= 60\n");
+        System.out.println("\n=====================================================================");
+        System.out.println("  SELAMAT DATANG DI SIMKOTA CLI: ULTIMATE METROPOLIS EDITION");
+        System.out.println("  Wali Kota: " + kota.getWaliKota().getNama() + " | Kota: " + kota.getNamaKota());
+        System.out.println("  Target Menang (Ronde 15): Populasi >= 1.000 | Bahagia >= 65% | SDM >= 60");
+        System.out.println("=====================================================================");
 
         while (rondeSekarang <= MAX_RONDE) {
             tampilkanStatus();
             prosesMenuAksi();
+
+            System.out.println("\n--- LAPORAN AKHIR RONDE " + rondeSekarang + " ---");
             kota.prosesRondeBangunan();
             picuRandomEvent();
 
-            if (cekKondisiKalah()) return;
+            if (cekKondisiKalah()) {
+                tampilkanHasilAkhir(false);
+                return;
+            }
             rondeSekarang++;
         }
-        tampilkanHasilAkhir();
+
+        boolean menang = kota.getPopulasi() >= 1000 && kota.getKebahagiaan() >= 65 && kota.getSkorSDM() >= 60;
+        tampilkanHasilAkhir(menang);
     }
 
     private String buatBar(int nilai, int maks) {
-        int blok = (int) Math.round(Math.min(1.0, Math.max(0.0, (double) nilai / maks)) * 8);
-        return "[" + "#".repeat(blok) + "-".repeat(8 - blok) + "]";
+        int panjang = 12;
+        int terisi = (maks <= 0) ? 0 : Math.min(panjang, Math.max(0, (nilai * panjang) / maks));
+        return "[" + "#".repeat(terisi) + "-".repeat(panjang - terisi) + "]";
     }
 
     private void tampilkanStatus() {
         kota.gambarPetaKota();
-        System.out.printf("RONDE %d/%d | Wali Kota: %s | Pajak: %s\n",
-                rondeSekarang, MAX_RONDE, kota.getWaliKota().getNama(), kota.getLabelPajak());
-        System.out.println("---------------------------------------------------------------------------");
-        System.out.printf("Kas: $%-6d | Populasi: %-4d/1000 | Keamanan: %d%% | Skor SDM: %d\n",
-                kota.getKas(), kota.getPopulasi(), kota.getKeamanan(), kota.getSkorSDM());
-        System.out.printf("Bahagia: %s %d%% | Listrik: %s %d/%d | Air: %s %d/%d | TPA: %d/%d\n",
-                buatBar(kota.getKebahagiaan(), 100), kota.getKebahagiaan(),
-                buatBar(kota.getKebutuhanListrik(), kota.getSuplaiListrik()), kota.getKebutuhanListrik(), kota.getSuplaiListrik(),
-                buatBar(kota.getKebutuhanAir(), kota.getSuplaiAir()), kota.getKebutuhanAir(), kota.getSuplaiAir(),
-                kota.getPopulasi(), kota.getKapasitasSampah());
-        System.out.println("===========================================================================");
+
+        int persenListrik = (kota.getKebutuhanListrik() == 0) ? 100
+                : Math.min(100, (kota.getSuplaiListrik() * 100) / kota.getKebutuhanListrik());
+        int persenAir = (kota.getKebutuhanAir() == 0) ? 100
+                : Math.min(100, (kota.getSuplaiAir() * 100) / kota.getKebutuhanAir());
+        int persenSampah = (kota.getKapasitasSampah() == 0) ? 100
+                : Math.min(100, (kota.getPopulasi() * 100) / kota.getKapasitasSampah());
+
+        System.out.println("\n=== STATUS KOTA (RONDE " + rondeSekarang + "/" + MAX_RONDE + ") ===");
+        System.out.printf("Kas Kota    : $%-10d | Populasi  : %d Warga%n", kota.getKas(), kota.getPopulasi());
+        System.out.printf("Keamanan    : %-3d%%        | Skor SDM  : %d Poin%n", kota.getKeamanan(), kota.getSkorSDM());
+        System.out.printf("Pajak Aktif : Hunian %d%% | Komersial %d%% | Industri %d%%%n",
+                kota.getPajakHunian(), kota.getPajakKomersial(), kota.getPajakIndustri());
+        System.out.printf("Kebahagiaan : %s %d%%%n", buatBar(kota.getKebahagiaan(), 100), kota.getKebahagiaan());
+        System.out.printf("Listrik     : %s %d%% (Suplai %d / Butuh %d MW)%n",
+                buatBar(persenListrik, 100), persenListrik, kota.getSuplaiListrik(), kota.getKebutuhanListrik());
+        System.out.printf("Air PDAM    : %s %d%% (Suplai %d / Butuh %d m3)%n",
+                buatBar(persenAir, 100), persenAir, kota.getSuplaiAir(), kota.getKebutuhanAir());
+        System.out.printf("Sampah TPA  : %s %d%% (Beban %d / Kapasitas %d)%n",
+                buatBar(persenSampah, 100), persenSampah, kota.getPopulasi(), kota.getKapasitasSampah());
     }
 
     private void prosesMenuAksi() {
-        boolean selesaiAksi = false;
-
-        while (!selesaiAksi) {
-            System.out.println("\n--- MENU UTAMA WALIKOTA ---");
-            System.out.println("1. Bangun Infrastruktur Baru (9 Kategori / 80+ Jenis Bangunan)");
-            System.out.println("2. Upgrade Bangunan Berdiri (Lv.1 -> Lv.3)");
+        while (true) {
+            System.out.println("\n--- MENU AKSI WALI KOTA ---");
+            System.out.println("1. Bangun Infrastruktur Baru (109 Pilihan)");
+            System.out.println("2. Upgrade Bangunan di Peta (Lv.1 -> Lv.3)");
             System.out.println("3. Gusur / Hancurkan Bangunan (Refund 50%)");
-            System.out.println("4. Atur Kebijakan Pajak");
-            System.out.println("5. Lihat Rekap Bangunan & Peringkat Skor");
-            System.out.println("6. Lewati Giliran (Lanjut Ronde)");
-            System.out.print("Pilihan (1-6): ");
+            System.out.println("4. Atur Kebijakan Pajak Sektoral (Hunian / Komersial / Industri)");
+            System.out.println("5. Lihat Rekap Bangunan & Leaderboard");
+            System.out.println("6. Lewati Giliran (Lanjut ke Ronde Berikutnya)");
+            System.out.print("Pilih aksi (1-6): ");
 
-            int pilih = bacaAngka();
-            switch (pilih) {
+            int pilihan = bacaAngka();
+            switch (pilihan) {
                 case 1 -> {
                     Bangunan b = pilihKatalogBangunan();
                     if (b != null) {
-                        System.out.print("Masukkan Baris (1-" + Kota.BARIS + "): ");
+                        System.out.print("Masukkan Baris (1-8): ");
                         int r = bacaAngka() - 1;
-                        System.out.print("Masukkan Kolom (1-" + Kota.KOLOM + "): ");
+                        System.out.print("Masukkan Kolom (1-10): ");
                         int c = bacaAngka() - 1;
                         if (kota.bangunDiKoordinat(b, r, c)) {
-                            System.out.println(">> Sukses membangun " + b.getNama() + " [" + b.getKodePeta() + "]!");
-                            selesaiAksi = true;
+                            return; // Menghabiskan 1 giliran ronde
                         }
                     }
                 }
                 case 2 -> {
-                    System.out.print("Baris bangunan yang di-upgrade (1-" + Kota.BARIS + "): ");
+                    System.out.print("Masukkan Baris bangunan yang di-upgrade (1-8): ");
                     int r = bacaAngka() - 1;
-                    System.out.print("Kolom bangunan yang di-upgrade (1-" + Kota.KOLOM + "): ");
+                    System.out.print("Masukkan Kolom bangunan yang di-upgrade (1-10): ");
                     int c = bacaAngka() - 1;
-                    if (kota.upgradeDiKoordinat(r, c)) selesaiAksi = true;
+                    if (kota.upgradeDiKoordinat(r, c)) {
+                        return; // Menghabiskan 1 giliran ronde
+                    }
                 }
                 case 3 -> {
-                    System.out.print("Baris bangunan yang digusur (1-" + Kota.BARIS + "): ");
+                    System.out.print("Masukkan Baris bangunan yang digusur (1-8): ");
                     int r = bacaAngka() - 1;
-                    System.out.print("Kolom bangunan yang digusur (1-" + Kota.KOLOM + "): ");
+                    System.out.print("Masukkan Kolom bangunan yang digusur (1-10): ");
                     int c = bacaAngka() - 1;
-                    if (kota.gusurDiKoordinat(r, c)) selesaiAksi = true;
+                    if (kota.gusurDiKoordinat(r, c)) {
+                        return; // Menghabiskan 1 giliran ronde
+                    }
                 }
-                case 4 -> ubahPajak();
+                case 4 -> ubahPajak(); // Tidak menghabiskan giliran
                 case 5 -> {
                     kota.tampilkanRekapBangunan();
                     tampilkanLeaderboard();
                 }
                 case 6 -> {
-                    System.out.println(">> Melanjutkan ke ronde berikutnya...");
-                    selesaiAksi = true;
+                    System.out.println("Wali Kota memantau perkembangan kota pada ronde ini...");
+                    return;
                 }
-                default -> System.out.println(">> Pilihan tidak valid.");
+                default -> System.out.println("Pilihan tidak valid!");
             }
         }
     }
 
     private Bangunan pilihKatalogBangunan() {
-        System.out.println("\n=== KATALOG 9 KATEGORI INFRASTRUKTUR ===");
-        System.out.println("1. Hunian & Akomodasi (Gubuk Sawah, Kost, Subsidi, Menengah, Kaya, Villa, Apartemen, Hotel)");
-        System.out.println("2. Utilitas & Kebersihan (Listrik, Air PDAM, Pom Bensin, TPA Sampah)");
-        System.out.println("3. Pelayanan Publik, Hukum & Militer (Balai Desa, Kantor Pemerintahan/Pajak, RS, Klinik, Apotek, Damkar, Polisi, Penjara, Markas Militer, Lawfirm, Pengadilan Negeri, Makam)");
-        System.out.println("4. Pendidikan & Pengasuhan (Daycare, PAUD/TK, SD, SMP, SMA, Universitas, Politeknik)");
-        System.out.println("5. Komersial, Kuliner & Gaya Hidup (Warung 24 Jam, Warteg, Kafe, Restoran, Supermarket, Mall, Toko ATK/Sekolah, Sepatu/Tas, Baju/Kain, Perhiasan, Elektronik, Alat Musik, Showroom Otomotif, Pet Shop)");
-        System.out.println("6. Rekreasi, Seni & Olahraga (Taman Kota, Taman Bermain Anak, Alun-alun, Monumen, Karaoke, Panggung Musik, Dance/Foto/Musik Studio, Lap. Bola/Tenis/Basket/Golf, GOR, Wahana Air, Pemancingan)");
-        System.out.println("7. Industri & Agrikultur (Sawah, Peternakan, Kawasan Industri, Pelabuhan Maritim, Pabrik Pom Bensin)");
-        System.out.println("8. Transportasi & Infrastruktur Jalan (Jalan Raya, Jalan Tol, Gerbang Tol, Halte Bus, Pangkalan Taksi, Pangkalan Gojek, Stasiun Kereta, Rel, Kereta Cepat, Bandara)");
-        System.out.println("9. Tempat Ibadah & Sosial (Masjid, Gereja, Klenteng, Wihara, Pura, Panti Asuhan)");
+        System.out.println("\n=== KATALOG 109 INFRASTRUKTUR (9 KATEGORI) ===");
+        System.out.println("1. Hunian & Akomodasi (9 Varian)");
+        System.out.println("2. Utilitas, Energi & Kebersihan (10 Varian)");
+        System.out.println("3. Pelayanan Publik, Hukum & Militer (16 Varian)");
+        System.out.println("4. Pendidikan & Riset (8 Varian)");
+        System.out.println("5. Komersial, Keuangan & Gaya Hidup (19 Varian)");
+        System.out.println("6. Rekreasi, Seni, Hiburan & Olahraga (24 Varian)");
+        System.out.println("7. Industri, Agrikultur & Maritim (6 Varian)");
+        System.out.println("8. Transportasi & Infrastruktur Jalan (11 Varian)");
+        System.out.println("9. Tempat Ibadah (6 Varian)");
         System.out.println("0. Batal");
-        System.out.print("Pilih Kategori (0-9): ");
+        System.out.print("Pilih kategori (0-9): ");
 
         return switch (bacaAngka()) {
             case 1 -> menuHunian();
@@ -166,19 +184,29 @@ public class GameEngine {
     }
 
     private Bangunan menuUtilitas() {
-        System.out.println("\n-- 2. UTILITAS & KEBERSIHAN --");
-        System.out.println("1. Pembangkit Listrik ($400)   -> +60 MW Listrik");
-        System.out.println("2. Instalasi Air PDAM ($350)   -> +60 m3 Air Bersih");
-        System.out.println("3. Pom Bensin / SPBU ($300)    -> +$100 Kas/ronde");
-        System.out.println("4. TPA Pembuangan Akhir ($350) -> +500 Kapasitas Sampah, -2% Bahagia");
-        System.out.println("5. Air Purifier Kota ($300)    -> +5% Bahagia (Udara Bersih)");
-        System.out.print("Pilih (1-5): ");
+        System.out.println("\n-- 2. UTILITAS, ENERGI & KEBERSIHAN --");
+        System.out.println("1. Pembangkit Listrik Dasar ($400)     -> +60 MW Listrik, -2% Bahagia");
+        System.out.println("2. Turbin Kincir Angin ($320)           -> +40 MW Listrik, +1% Bahagia");
+        System.out.println("3. Pembangkit Tenaga Air/PLTA ($550)    -> +95 MW Listrik, +2% Bahagia");
+        System.out.println("4. Pembangkit Nuklir/PLTN ($1100)      -> +250 MW Listrik, -6% Bahagia");
+        System.out.println("5. Pompa Air ($220)                    -> +35 m3 Air Bersih, +$10 Kas");
+        System.out.println("6. Instalasi Air PDAM ($350)           -> +60 m3 Air Bersih, +2% Bahagia");
+        System.out.println("7. Instalasi Pengolahan Air/WTP ($750) -> +160 m3 Air Bersih, +3% Bahagia");
+        System.out.println("8. Pom Bensin / SPBU ($300)            -> +$100 Kas/ronde");
+        System.out.println("9. TPA Pembuangan Akhir ($350)         -> +500 Kapasitas Sampah, -2% Bahagia");
+        System.out.println("10. Air Purifier Kota ($300)           -> +5% Bahagia (Udara Bersih)");
+        System.out.print("Pilih (1-10): ");
         return switch (bacaAngka()) {
             case 1 -> new Utilitas("Pembangkit Listrik", "PLK", 400, 35, 60, 0, 0, -2);
-            case 2 -> new Utilitas("Air PDAM", "PDM", 350, 25, 0, 60, 25, 2);
-            case 3 -> new Utilitas("Pom Bensin", "SPB", 300, 20, 0, 0, 100, 0);
-            case 4 -> new Utilitas("TPA Sampah Kota", "TPA", 350, 30, 0, 0, 15, -2);
-            case 5 -> new Utilitas("Air Purifier Kota", "APF", 300, 25, 0, 0, 0, 5);
+            case 2 -> new Utilitas("Turbin Kincir Angin", "PLA", 320, 22, 40, 0, 0, 1);
+            case 3 -> new Utilitas("Pembangkit Tenaga Air", "PTA", 550, 42, 95, 0, 0, 2);
+            case 4 -> new Utilitas("Pembangkit Nuklir", "PTN", 1100, 95, 250, 0, 0, -6);
+            case 5 -> new Utilitas("Pompa Air", "PMP", 220, 15, 0, 35, 10, 0);
+            case 6 -> new Utilitas("Instalasi Air PDAM", "PDM", 350, 25, 0, 60, 25, 2);
+            case 7 -> new Utilitas("Instalasi Pengolahan Air", "WTP", 750, 55, 0, 160, 0, 3);
+            case 8 -> new Utilitas("Pom Bensin", "SPB", 300, 20, 0, 0, 100, 0);
+            case 9 -> new Utilitas("TPA Sampah Kota", "TPA", 350, 30, 0, 0, 15, -2);
+            case 10 -> new Utilitas("Air Purifier Kota", "APF", 300, 25, 0, 0, 0, 5);
             default -> null;
         };
     }
@@ -219,25 +247,25 @@ public class GameEngine {
     }
 
     private Bangunan menuPendidikan() {
-        System.out.println("\n-- 4. PENDIDIKAN & PENGASUHAN --");
-        System.out.println("1. Daycare Penitipan Anak ($180) -> +3 SDM, +4% Bahagia");
-        System.out.println("2. Sekolah PAUD & TK ($200)     -> +4 SDM, +3% Bahagia");
-        System.out.println("3. Sekolah Dasar / SD ($220)    -> +6 SDM, +2% Bahagia");
-        System.out.println("4. SMP ($280)                   -> +9 SDM, +2% Bahagia");
-        System.out.println("5. SMA ($350)                   -> +13 SDM, +3% Bahagia");
-        System.out.println("6. Universitas ($600)           -> +22 SDM, +5% Bahagia");
-        System.out.println("7. Politeknik ($650)            -> +28 SDM (Vokasi Unggulan!), +6% Bahagia");
-        System.out.println("8. Perpustakaan Kota ($300)     -> +14 SDM, +5% Bahagia");
+        System.out.println("\n-- 4. PENDIDIKAN & RISET --");
+        System.out.println("1. Daycare Anak ($180)         -> +5 SDM, +4% Bahagia");
+        System.out.println("2. Sekolah PAUD & TK ($200)    -> +6 SDM, +4% Bahagia");
+        System.out.println("3. Sekolah Dasar / SD ($250)   -> +10 SDM, +3% Bahagia");
+        System.out.println("4. SMP ($300)                  -> +14 SDM, +3% Bahagia");
+        System.out.println("5. SMA ($350)                  -> +18 SDM, +4% Bahagia");
+        System.out.println("6. Universitas ($700)          -> +32 SDM, +6% Bahagia");
+        System.out.println("7. Politeknik ($650)           -> +28 SDM, +5% Bahagia");
+        System.out.println("8. Perpustakaan Kota ($280)    -> +12 SDM, +5% Bahagia");
         System.out.print("Pilih (1-8): ");
         return switch (bacaAngka()) {
-            case 1 -> new Pendidikan("Daycare Anak", "DYC", 180, 12, 3, 4);
-            case 2 -> new Pendidikan("Sekolah PAUD & TK", "PUD", 200, 15, 4, 3);
-            case 3 -> new Pendidikan("Sekolah Dasar (SD)", "SSD", 220, 15, 6, 2);
-            case 4 -> new Pendidikan("SMP", "SMP", 280, 20, 9, 2);
-            case 5 -> new Pendidikan("SMA", "SMA", 350, 25, 13, 3);
-            case 6 -> new Pendidikan("Universitas", "UNV", 600, 45, 22, 5);
-            case 7 -> new Pendidikan("Politeknik", "PLT", 650, 45, 28, 6);
-            case 8 -> new Pendidikan("Perpustakaan Kota", "PRP", 300, 20, 14, 5);
+            case 1 -> new Pendidikan("Daycare Anak", "DYC", 180, 12, 5, 4);
+            case 2 -> new Pendidikan("Sekolah PAUD & TK", "PUD", 200, 15, 6, 4);
+            case 3 -> new Pendidikan("Sekolah Dasar", "SDN", 250, 18, 10, 3);
+            case 4 -> new Pendidikan("Sekolah Menengah Pertama", "SMP", 300, 22, 14, 3);
+            case 5 -> new Pendidikan("Sekolah Menengah Atas", "SMA", 350, 26, 18, 4);
+            case 6 -> new Pendidikan("Universitas", "UNV", 700, 55, 32, 6);
+            case 7 -> new Pendidikan("Politeknik", "PLT", 650, 50, 28, 5);
+            case 8 -> new Pendidikan("Perpustakaan Kota", "PRP", 280, 20, 12, 5);
             default -> null;
         };
     }
@@ -302,7 +330,7 @@ public class GameEngine {
             case 11 -> new RekreasiOlahraga("Dance Studio", "DNC", 260, 18, 5, 50);
             case 12 -> new RekreasiOlahraga("Studio Foto", "FTO", 240, 16, 4, 60);
             case 13 -> new RekreasiOlahraga("Studio Musik", "STM", 280, 20, 5, 65);
-            case 14 -> new RekreasiOlahraga("Tempat Pilates", "PLT", 280, 20, 5, 75);
+            case 14 -> new RekreasiOlahraga("Tempat Pilates", "PIL", 280, 20, 5, 75);
             case 15 -> new RekreasiOlahraga("SPA & Relaksasi", "SPA", 340, 24, 7, 95);
             case 16 -> new RekreasiOlahraga("Lapangan Sepak Bola", "LSB", 350, 25, 6, 40);
             case 17 -> new RekreasiOlahraga("Lapangan Tenis", "LTN", 250, 20, 4, 35);
@@ -368,13 +396,13 @@ public class GameEngine {
     }
 
     private Bangunan menuIbadahSosial() {
-        System.out.println("\n-- 9. TEMPAT IBADAH & SOSIAL --");
-        System.out.println("1. Musholla ($150)      -> +4% Bahagia, +4% Keamanan/Harmoni");
-        System.out.println("2. Masjid Agung ($250)  -> +6% Bahagia, +6% Keamanan/Harmoni");
-        System.out.println("3. Gereja ($250)        -> +6% Bahagia, +6% Keamanan/Harmoni");
-        System.out.println("4. Klenteng ($250)      -> +6% Bahagia, +6% Keamanan/Harmoni");
-        System.out.println("5. Wihara ($250)        -> +6% Bahagia, +6% Keamanan/Harmoni");
-        System.out.println("6. Pura ($250)          -> +6% Bahagia, +6% Keamanan/Harmoni");
+        System.out.println("\n-- 9. TEMPAT IBADAH --");
+        System.out.println("1. Musholla ($150)      -> +4% Bahagia, +4% Harmoni");
+        System.out.println("2. Masjid Agung ($250)  -> +6% Bahagia, +6% Harmoni");
+        System.out.println("3. Gereja ($250)        -> +6% Bahagia, +6% Harmoni");
+        System.out.println("4. Klenteng ($250)      -> +6% Bahagia, +6% Harmoni");
+        System.out.println("5. Wihara ($250)        -> +6% Bahagia, +6% Harmoni");
+        System.out.println("6. Pura ($250)          -> +6% Bahagia, +6% Harmoni");
         System.out.print("Pilih (1-6): ");
         return switch (bacaAngka()) {
             case 1 -> new TempatIbadahSosial("Musholla", "MSH", 150, 10, 4, 4);
@@ -388,96 +416,115 @@ public class GameEngine {
     }
 
     private void ubahPajak() {
-        System.out.println("\n1. Rendah (5%) | 2. Normal (10%) | 3. Tinggi (20%)");
-        System.out.print("Pilih tarif pajak: ");
-        int p = bacaAngka();
-        if (p >= 1 && p <= 3) kota.setTarifPajak(p);
+        System.out.println("\n=== KEBIJAKAN PAJAK SEKTORAL ===");
+        System.out.printf("1. Pajak Hunian    (Saat ini: %s)%n", Kota.getLabelTarif(kota.getPajakHunian()));
+        System.out.printf("2. Pajak Komersial (Saat ini: %s)%n", Kota.getLabelTarif(kota.getPajakKomersial()));
+        System.out.printf("3. Pajak Industri  (Saat ini: %s)%n", Kota.getLabelTarif(kota.getPajakIndustri()));
+        System.out.println("0. Kembali");
+        System.out.print("Pilih sektor yang ingin diatur (0-3): ");
+
+        int sektor = bacaAngka();
+        if (sektor < 1 || sektor > 3) return;
+
+        System.out.println("Pilih Tarif Baru: [1] Rendah (5%)  [2] Normal (10%)  [3] Tinggi (20%)");
+        System.out.print("Pilihan tarif (1-3): ");
+        int tarif = switch (bacaAngka()) {
+            case 1 -> 5;
+            case 2 -> 10;
+            case 3 -> 20;
+            default -> -1;
+        };
+
+        if (tarif == -1) {
+            System.out.println("Pilihan tarif tidak valid.");
+            return;
+        }
+
+        if (sektor == 1) kota.setPajakHunian(tarif);
+        else if (sektor == 2) kota.setPajakKomersial(tarif);
+        else kota.setPajakIndustri(tarif);
+
+        System.out.println("\u001B[32m[✓] Tarif pajak sektor berhasil diperbarui menjadi " + Kota.getLabelTarif(tarif) + "!\u001B[0m");
     }
 
     private int bacaAngka() {
-        if (scanner.hasNextInt()) return scanner.nextInt();
-        scanner.next();
-        return -1;
+        while (!scanner.hasNextInt()) {
+            scanner.next();
+            System.out.print("Masukkan angka yang valid: ");
+        }
+        return scanner.nextInt();
     }
 
     private void picuRandomEvent() {
         Random rand = new Random();
-        int ev = rand.nextInt(7);
-        if (ev == 0) {
-            System.out.println("[EVENT] Wisuda Mahasiswa Politeknik! Skor SDM +12, Bahagia +4%.");
-            kota.tambahSkorSDM(12);
+        int peluang = rand.nextInt(100);
+        if (peluang < 20) {
+            System.out.println("\u001B[36m[EVENT] Festival Budaya & Wisata Kota! Kas +$250, Kebahagiaan +4%.\u001B[0m");
+            kota.tambahKas(250);
             kota.ubahKebahagiaan(4);
-        } else if (ev == 1) {
-            int rugi = Math.max(20, 150 - kota.getKeamanan());
-            System.out.println("[EVENT] Insiden Keamanan! Kerugian kas -$" + rugi + " (ditekan oleh keamanan kota).");
-            kota.tambahKas(-rugi);
-        } else if (ev == 2) {
-            System.out.println("[EVENT] Lonjakan Penumpang Kereta Cepat & Tol! Kas +$220.");
-            kota.tambahKas(220);
-        } else if (ev == 3) {
-            if (kota.getKeamanan() >= 75) {
-                System.out.println("[EVENT] Markas Militer, Polisi & Penjara menjaga kota tetap kondusif!");
-            } else {
-                System.out.println("[EVENT] Kriminalitas meningkat karena keamanan rendah! Kas -$100, Bahagia -4%.");
-                kota.tambahKas(-100);
-                kota.ubahKebahagiaan(-4);
-            }
+        } else if (peluang < 35) {
+            System.out.println("\u001B[33m[EVENT] Hujan Lebat & Perbaikan Drainase! Biaya darurat -$150.\u001B[0m");
+            kota.tambahKas(-150);
+        } else if (peluang < 45) {
+            System.out.println("\u001B[32m[EVENT] Investor & Wisatawan Berdatangan! Populasi +45 Warga.\u001B[0m");
+            kota.ubahPopulasi(45);
         }
     }
 
     private boolean cekKondisiKalah() {
-        if (kota.getKas() < 0 || kota.getKebahagiaan() < 20) {
-            kota.gambarPetaKota();
-            kota.getWaliKota().hitungSkor(kota);
-            String gelar = kota.getWaliKota().tentukanGelar(kota, false);
-            simpanKeLeaderboard(gelar);
-            System.out.println("\n=======================================================");
-            System.out.println("[GAME OVER] " + (kota.getKas() < 0 ? "Kota Bangkrut!" : "Warga Demo Besar-Besaran!"));
-            System.out.println("Gelar Akhir: " + gelar);
-            System.out.println("Skor Akhir : " + kota.getWaliKota().getSkorAkhir());
-            System.out.println("=======================================================");
-            tampilkanLeaderboard();
+        if (kota.getKas() < 0) {
+            System.out.println("\n\u001B[31m[GAME OVER] Kota mengalami kebangkrutan (Kas < $0)!\u001B[0m");
+            return true;
+        }
+        if (kota.getKebahagiaan() < 20) {
+            System.out.println("\n\u001B[31m[GAME OVER] Warga melakukan demonstrasi besar karena kebahagiaan < 20%!\u001B[0m");
             return true;
         }
         return false;
     }
 
-    private void tampilkanHasilAkhir() {
-        boolean menang = (kota.getPopulasi() >= 1000 && kota.getKebahagiaan() >= 65 && kota.getSkorSDM() >= 60);
-        kota.gambarPetaKota();
-        kota.getWaliKota().hitungSkor(kota);
-        kota.tampilkanRekapBangunan();
-        String gelar = kota.getWaliKota().tentukanGelar(kota, menang);
-        simpanKeLeaderboard(gelar);
+    private void tampilkanHasilAkhir(boolean menang) {
+        WaliKota wk = kota.getWaliKota();
+        wk.hitungSkor(kota);
+        String gelar = wk.tentukanGelar(kota, menang);
 
-        System.out.println("\n=======================================================");
-        System.out.println(menang ? "STATUS: MENANG! Kota Mega Metropolis Terwujud!" : "STATUS: BELUM TERCAPAI. Target Populasi/Bahagia/SDM kurang.");
-        System.out.println("Gelar Akhir: " + gelar);
-        System.out.println("Skor Akhir : " + kota.getWaliKota().getSkorAkhir());
-        System.out.println("=======================================================");
+        System.out.println("\n=====================================================================");
+        System.out.println("                      EVALUASI AKHIR KEPEMIMPINAN                    ");
+        System.out.println("=====================================================================");
+        kota.tampilkanRekapBangunan();
+        System.out.println("---------------------------------------------------------------------");
+        System.out.println("Status Akhir  : " + (menang ? "\u001B[32mMENANG (METROPOLIS SUKSES)\u001B[0m" : "\u001B[31mKALAH / GAGAL TARGET\u001B[0m"));
+        System.out.println("Wali Kota     : " + wk.getNama() + " (" + kota.getNamaKota() + ")");
+        System.out.println("Statistik     : Populasi " + kota.getPopulasi() + " | Bahagia " + kota.getKebahagiaan() + "% | SDM " + kota.getSkorSDM() + " | Kas $" + kota.getKas());
+        System.out.println("Skor Akhir    : " + wk.getSkorAkhir() + " Poin");
+        System.out.println("Gelar         : " + gelar);
+        System.out.println("=====================================================================");
+
+        simpanKeLeaderboard(gelar);
         tampilkanLeaderboard();
     }
 
     private void simpanKeLeaderboard(String gelar) {
+        WaliKota wk = kota.getWaliKota();
         leaderboard.add(new String[]{
-            kota.getWaliKota().getNama(),
-            kota.getNamaKota(),
-            String.valueOf(kota.getWaliKota().getSkorAkhir()),
-            gelar
+                wk.getNama(),
+                kota.getNamaKota(),
+                String.valueOf(wk.getSkorAkhir()),
+                gelar
         });
-        leaderboard.sort(Comparator.comparingInt((String[] a) -> Integer.parseInt(a[2])).reversed());
+        leaderboard.sort((a, b) -> Integer.compare(Integer.parseInt(b[2]), Integer.parseInt(a[2])));
     }
 
     private void tampilkanLeaderboard() {
-        System.out.println("\n=== RINGKASAN PERINGKAT WALI KOTA (LEADERBOARD) ===");
+        System.out.println("\n=== PAPAN PERINGKAT (LEADERBOARD) WALI KOTA ===");
         if (leaderboard.isEmpty()) {
-            System.out.println("Belum ada riwayat sesi selesai.");
+            System.out.println("Belum ada catatan skor pada sesi ini.");
             return;
         }
         for (int i = 0; i < leaderboard.size(); i++) {
             String[] data = leaderboard.get(i);
-            System.out.printf("#%d | %s (Kota %s) - Skor: %s [%s]\n",
-                    (i + 1), data[0], data[1], data[2], data[3]);
+            System.out.printf("#%d | %-15s | Kota: %-14s | Skor: %6s | %s%n",
+                    i + 1, data[0], data[1], data[2], data[3]);
         }
     }
 }
