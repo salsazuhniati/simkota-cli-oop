@@ -339,28 +339,30 @@ public class GameEngine {
 
     private Bangunan menuTransportasi() {
         System.out.println("\n-- 8. TRANSPORTASI & INFRASTRUKTUR JALAN --");
-        System.out.println("1. Jalan Raya ($100)           -> +15 Populasi, +$25 Kas");
-        System.out.println("2. Jalan Tol ($300)            -> +35 Populasi, +$90 Kas");
-        System.out.println("3. Gerbang Tol ($350)          -> +20 Populasi, +$140 Tarif Tol");
-        System.out.println("4. Pangkalan Gojek ($160)      -> +30 Populasi, +$50 Kas");
-        System.out.println("5. Halte Bus ($200)            -> +35 Populasi, +$45 Tiket");
-        System.out.println("6. Pangkalan Taksi ($250)      -> +30 Populasi, +$65 Tiket");
-        System.out.println("7. Rel Kereta ($150)           -> +20 Populasi, +$35 Kas");
-        System.out.println("8. Stasiun Kereta Api ($650)   -> +100 Populasi, +$180 Tiket");
-        System.out.println("9. Jalur Kereta Cepat ($850)   -> +130 Populasi, +$240 Tiket");
-        System.out.println("10. Bandara ($950)             -> +150 Populasi, +$280 Tiket");
-        System.out.print("Pilih (1-10): ");
+        System.out.println("1. Jalan Raya ($120)          -> +10 Warga, +$20 Tiket/Pajak");
+        System.out.println("2. Jalan Tol ($350)           -> +25 Warga, +$90 Tiket");
+        System.out.println("3. Gerbang Tol ($280)         -> +10 Warga, +$110 Tiket");
+        System.out.println("4. Pangkalan Gojek ($160)     -> +15 Warga, +$45 Tiket");
+        System.out.println("5. Halte Bus ($180)           -> +20 Warga, +$50 Tiket");
+        System.out.println("6. Terminal Bus ($380)        -> +45 Warga, +$115 Tiket");
+        System.out.println("7. Pangkalan Taksi ($220)     -> +25 Warga, +$65 Tiket");
+        System.out.println("8. Rel Kereta ($300)          -> +30 Warga, +$75 Tiket");
+        System.out.println("9. Stasiun Kereta Api ($550)  -> +65 Warga, +$170 Tiket");
+        System.out.println("10. Jalur Kereta Cepat ($800) -> +100 Warga, +$260 Tiket");
+        System.out.println("11. Bandara ($1000)           -> +140 Warga, +$380 Tiket");
+        System.out.print("Pilih (1-11): ");
         return switch (bacaAngka()) {
-            case 1 -> new Transportasi("Jalan Raya", "JLN", 100, 8, 15, 25);
-            case 2 -> new Transportasi("Jalan Tol", "TOL", 300, 20, 35, 90);
-            case 3 -> new Transportasi("Gerbang Tol", "GTL", 350, 25, 20, 140);
-            case 4 -> new Transportasi("Pangkalan Gojek", "GJK", 160, 10, 30, 50);
-            case 5 -> new Transportasi("Halte Bus", "BUS", 200, 15, 35, 45);
-            case 6 -> new Transportasi("Pangkalan Taksi", "TKS", 250, 20, 30, 65);
-            case 7 -> new Transportasi("Rel Kereta", "REL", 150, 10, 20, 35);
-            case 8 -> new Transportasi("Stasiun Kereta Api", "STA", 650, 50, 100, 180);
-            case 9 -> new Transportasi("Jalur Kereta Cepat", "KCT", 850, 65, 130, 240);
-            case 10 -> new Transportasi("Bandara Internasional", "BND", 950, 80, 150, 280);
+            case 1 -> new Transportasi("Jalan Raya", "JLN", 120, 8, 10, 20);
+            case 2 -> new Transportasi("Jalan Tol", "TOL", 350, 25, 25, 90);
+            case 3 -> new Transportasi("Gerbang Tol", "GTL", 280, 20, 10, 110);
+            case 4 -> new Transportasi("Pangkalan Gojek", "GJK", 160, 12, 15, 45);
+            case 5 -> new Transportasi("Halte Bus", "HLT", 180, 14, 20, 50);
+            case 6 -> new Transportasi("Terminal Bus", "TRM", 380, 28, 45, 115);
+            case 7 -> new Transportasi("Pangkalan Taksi", "TKS", 220, 16, 25, 65);
+            case 8 -> new Transportasi("Rel Kereta", "REL", 300, 22, 30, 75);
+            case 9 -> new Transportasi("Stasiun Kereta Api", "STS", 550, 45, 65, 170);
+            case 10 -> new Transportasi("Jalur Kereta Cepat", "KCP", 800, 65, 100, 260);
+            case 11 -> new Transportasi("Bandara Internasional", "BDR", 1000, 90, 140, 380);
             default -> null;
         };
     }
