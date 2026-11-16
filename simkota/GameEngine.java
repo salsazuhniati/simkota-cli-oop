@@ -159,26 +159,24 @@ public class GameEngine {
 
     private Bangunan menuHunian() {
         System.out.println("\n-- 1. HUNIAN & AKOMODASI --");
-        System.out.println("1. Gubuk Pinggir Sawah ($100)  -> +20 Warga, +$15 Pajak");
-        System.out.println("2. Rumah Pedesaan ($150)       -> +35 Warga, +$25 Pajak");
-        System.out.println("3. Kost-Kostan ($180)          -> +50 Warga, +$45 Pajak");
-        System.out.println("4. Perumahan Subsidi ($250)    -> +80 Warga, +$40 Pajak");
-        System.out.println("5. Perumahan Menengah ($400)   -> +70 Warga, +$110 Pajak");
-        System.out.println("6. Perumahan Kaya Raya ($650)  -> +50 Warga, +$240 Pajak");
-        System.out.println("7. Kawasan Villa ($800)        -> +25 Warga, +$300 Pajak, +5% Bahagia");
-        System.out.println("8. Apartemen Bertingkat ($900) -> +180 Warga, +$280 Pajak");
-        System.out.println("9. Hotel Bintang Lima ($950)   -> +40 Warga, +$360 Kas, +4% Bahagia");
-        System.out.print("Pilih (1-9): ");
+        System.out.println("1. Rumah Pedesaan ($150)       -> +35 Warga, +$25 Pajak");
+        System.out.println("2. Kost-Kostan ($180)          -> +50 Warga, +$45 Pajak");
+        System.out.println("3. Perumahan Subsidi ($250)    -> +80 Warga, +$40 Pajak");
+        System.out.println("4. Perumahan Menengah ($400)   -> +70 Warga, +$110 Pajak");
+        System.out.println("5. Perumahan Kaya Raya ($650)  -> +50 Warga, +$240 Pajak");
+        System.out.println("6. Kawasan Villa ($800)        -> +25 Warga, +$300 Pajak, +5% Bahagia");
+        System.out.println("7. Apartemen Bertingkat ($900) -> +180 Warga, +$280 Pajak");
+        System.out.println("8. Hotel Bintang Lima ($950)   -> +40 Warga, +$360 Kas, +4% Bahagia");
+        System.out.print("Pilih (1-8): ");
         return switch (bacaAngka()) {
-            case 1 -> new Hunian("Gubuk Pinggir Sawah", "GBK", 100, 5, 20, 15, 2, 2);
-            case 2 -> new Hunian("Rumah Pedesaan", "RPD", 150, 10, 35, 25, 5, 5);
-            case 3 -> new Hunian("Kost-Kostan", "KST", 180, 12, 50, 45, 8, 8);
-            case 4 -> new Hunian("Perumahan Subsidi", "HSB", 250, 18, 80, 40, 12, 12);
-            case 5 -> new Hunian("Perumahan Menengah", "HMN", 400, 30, 70, 110, 16, 16);
-            case 6 -> new Hunian("Perumahan Kaya Raya", "HKY", 650, 50, 50, 240, 25, 20);
-            case 7 -> new Hunian("Kawasan Villa", "VLA", 800, 60, 25, 300, 20, 25);
-            case 8 -> new Hunian("Apartemen Bertingkat", "APR", 900, 75, 180, 280, 35, 35);
-            case 9 -> new Hunian("Hotel Bintang Lima", "HTL", 950, 80, 40, 360, 30, 30);
+            case 1 -> new Hunian("Rumah Pedesaan", "RPD", 150, 10, 35, 25, 5, 5);
+            case 2 -> new Hunian("Kost-Kostan", "KST", 180, 12, 50, 45, 8, 8);
+            case 3 -> new Hunian("Perumahan Subsidi", "HSB", 250, 18, 80, 40, 12, 12);
+            case 4 -> new Hunian("Perumahan Menengah", "HMN", 400, 30, 70, 110, 16, 16);
+            case 5 -> new Hunian("Perumahan Kaya Raya", "HKY", 650, 50, 50, 240, 25, 20);
+            case 6 -> new Hunian("Kawasan Villa", "VLA", 800, 60, 25, 300, 20, 25);
+            case 7 -> new Hunian("Apartemen Bertingkat", "APR", 900, 75, 180, 280, 35, 35);
+            case 8 -> new Hunian("Hotel Bintang Lima", "HTL", 950, 80, 40, 360, 30, 30);
             default -> null;
         };
     }
@@ -315,7 +313,8 @@ public class GameEngine {
         System.out.println("16. Lap. Sepak Bola ($350) | 17. Lap. Tenis ($250) | 18. Lap. Basket ($250)");
         System.out.println("19. Lapangan Padel ($320) | 20. Gedung Olahraga / GOR ($450) | 21. Stadion Utama ($850)");
         System.out.println("22. Lapangan Golf ($750) | 23. Wahana Air ($550) | 24. Kolam Pemancingan ($200)");
-        System.out.print("Pilih (1-24): ");
+        System.out.println("25. Gubuk Pinggir Sawah ($100) -> +4% Bahagia (Tempat Istirahat Petani)");
+        System.out.print("Pilih (1-25): ");
         return switch (bacaAngka()) {
             case 1 -> new RekreasiOlahraga("Taman Kota", "TMN", 200, 15, 6, 0);
             case 2 -> new RekreasiOlahraga("Taman Bermain Anak", "TBA", 220, 15, 7, 15);
@@ -341,6 +340,7 @@ public class GameEngine {
             case 22 -> new RekreasiOlahraga("Lapangan Golf", "GLF", 750, 60, 9, 240);
             case 23 -> new RekreasiOlahraga("Wahana Air", "WHA", 550, 45, 10, 130);
             case 24 -> new RekreasiOlahraga("Kolam Pemancingan", "PNC", 200, 15, 5, 45);
+            case 25 -> new RekreasiOlahraga("Gubuk Pinggir Sawah", "GBK", 100, 5, 4, 0);
             default -> null;
         };
     }
