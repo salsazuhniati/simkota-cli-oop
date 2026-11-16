@@ -42,12 +42,12 @@ tugas-project-oop/
 │   ├── Kota.java                 # Pengelola kas, pajak sektoral, utilitas, TPA & peta 8x10
 │   ├── WaliKota.java             # Perhitungan skor akhir & gelar kepemimpinan
 │   ├── Bangunan.java             # Abstract class induk (atribut dasar & sistem level 1-3)
-│   ├── Hunian.java               # Subclass 1: 9 varian hunian & akomodasi
+│   ├── Hunian.java               # Subclass 1: 8 varian hunian & akomodasi
 │   ├── Utilitas.java             # Subclass 2: 10 varian utilitas, energi & kebersihan kota
 │   ├── PelayananPublik.java      # Subclass 3: 16 varian pelayanan publik, hukum & sosial
 │   ├── Pendidikan.java           # Subclass 4: 8 varian institusi pendidikan & literasi
 │   ├── Komersial.java            # Subclass 5: 19 varian komersial, keuangan & kuliner
-│   ├── RekreasiOlahraga.java     # Subclass 6: 24 varian rekreasi, seni, hiburan & olahraga
+│   ├── RekreasiOlahraga.java     # Subclass 6: 25 varian rekreasi, seni, hiburan & olahraga
 │   ├── IndustriAgrikultur.java   # Subclass 7: 6 varian industri, perkebunan & maritim
 │   ├── Transportasi.java         # Subclass 8: 11 varian infrastruktur transportasi
 │   └── TempatIbadahSosial.java   # Subclass 9: 6 varian tempat ibadah
