@@ -59,12 +59,12 @@ tugas-project-oop/
 
 | No | Subclass Kategori | Jumlah | Daftar Infrastruktur |
 | :--- | :--- | :---: | :--- |
-| 1 | **`Hunian`** | 9 | Gubuk Pinggir Sawah, Rumah Pedesaan, Kost-Kostan, Perumahan Subsidi, Perumahan Menengah, Perumahan Kaya Raya, Kawasan Villa, Apartemen Bertingkat, Hotel Bintang Lima |
+| 1 | **`Hunian`** | 8 | Rumah Pedesaan, Kost-Kostan, Perumahan Subsidi, Perumahan Menengah, Perumahan Kaya Raya, Kawasan Villa, Apartemen Bertingkat, Hotel Bintang Lima |
 | 2 | **`Utilitas`** | 10 | Pembangkit Listrik Dasar, Turbin Kincir Angin, Pembangkit Tenaga Air (PLTA), Pembangkit Nuklir (PLTN), Pompa Air, Instalasi Air PDAM, Instalasi Pengolahan Air (WTP), Pom Bensin (SPBU), TPA Sampah Kota, Air Purifier Kota |
 | 3 | **`PelayananPublik`** | 16 | Kantor Balai Desa, Kantor Pemerintahan, Mall Pelayanan Publik, Kantor Pajak, Rumah Sakit, Klinik Kesehatan, Apotek, Pemadam Kebakaran, Kantor Polisi, Penjara / Lapas, Markas Militer, Lawfirm, Pengadilan Negeri, Area Makam, Krematorium, Panti Asuhan |
 | 4 | **`Pendidikan`** | 8 | Daycare Anak, Sekolah PAUD & TK, Sekolah Dasar (SD), SMP, SMA, Universitas, Politeknik, Perpustakaan Kota |
 | 5 | **`Komersial`** | 19 | Warung 24 Jam, Warteg, Toko Cake & Bakery, Kafe, Restoran, Pasar Tradisional, Supermarket, Shopping Mall, Bank, Toko Alat Sekolah & ATK, Toko Sepatu & Tas, Toko Baju & Kain, Toko Perhiasan, Toko Elektronik, Toko Alat Musik, Showcase Otomotif, Pet Shop, Toko Bangunan, Toko Perabotan Rumah Tangga |
-| 6 | **`RekreasiOlahraga`** | 24 | Taman Kota, Taman Bermain Anak, Alun-Alun Kota, Monumen Kota, Museum Bersejarah, Gedung Kesenian, Bioskop, Rental PS, Tempat Karaoke, Panggung Musik, Dance Studio, Studio Foto, Studio Musik, Tempat Pilates, SPA & Relaksasi, Lapangan Sepak Bola, Lapangan Tenis, Lapangan Basket, Lapangan Padel, Gedung Olahraga (GOR), Stadion Utama, Lapangan Golf, Wahana Air, Kolam Pemancingan |
+| 6 | **`RekreasiOlahraga`** | 25 | Taman Kota, Taman Bermain Anak, Alun-Alun Kota, Monumen Kota, Museum Bersejarah, Gedung Kesenian, Bioskop, Rental PS, Tempat Karaoke, Panggung Musik, Dance Studio, Studio Foto, Studio Musik, Tempat Pilates, SPA & Relaksasi, Lapangan Sepak Bola, Lapangan Tenis, Lapangan Basket, Lapangan Padel, Gedung Olahraga (GOR), Stadion Utama, Lapangan Golf, Wahana Air, Kolam Pemancingan, Gubuk Pinggir Sawah. |
 | 7 | **`IndustriAgrikultur`** | 6 | Lahan Sawah, Perkebunan, Peternakan, Kawasan Industri, Pelabuhan Maritim, Kilang/Pabrik Pom Bensin |
 | 8 | **`Transportasi`** | 11 | Jalan Raya, Jalan Tol, Gerbang Tol, Pangkalan Gojek, Halte Bus, Terminal Bus, Pangkalan Taksi, Rel Kereta, Stasiun Kereta Api, Jalur Kereta Cepat, Bandara Internasional |
 | 9 | **`TempatIbadahSosial`** | 6 | Musholla, Masjid Agung, Gereja, Klenteng, Wihara, Pura |
