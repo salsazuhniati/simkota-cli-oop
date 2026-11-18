@@ -96,4 +96,6 @@ tugas-project-oop/
 ## 👥 Tim Pengembang
 
 * **Salsa Zuhniati** (3125510059) — D-3 Teknik Informatika, Politeknik Elektronika Negeri Surabaya (PENS)
-* *(Anggota Kelompok 2, 3, dan 4 — Mata Kuliah Pemrograman Berorientasi Obyek)*
+* **Kurnia Hary Trisnandha** (3125510055) — D-3 Teknik Informatika, Politeknik Elektronika Negeri Surabaya (PENS)
+* **Lailatul Farrij** (3125510060) — D-3 Teknik Informatika, Politeknik Elektronika Negeri Surabaya (PENS)
+* **Sheilla Cantika Agne Kania** (3125510066) — D-3 Teknik Informatika, Politeknik Elektronika Negeri Surabaya (PENS)
