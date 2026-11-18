@@ -131,12 +131,12 @@ public class GameEngine {
 
     private Bangunan pilihKatalogBangunan() {
         System.out.println("\n=== KATALOG 109 INFRASTRUKTUR (9 KATEGORI) ===");
-        System.out.println("1. Hunian & Akomodasi (9 Varian)");
+        System.out.println("1. Hunian & Akomodasi (8 Varian)");
         System.out.println("2. Utilitas, Energi & Kebersihan (10 Varian)");
         System.out.println("3. Pelayanan Publik, Hukum & Militer (16 Varian)");
         System.out.println("4. Pendidikan & Riset (8 Varian)");
         System.out.println("5. Komersial, Keuangan & Gaya Hidup (19 Varian)");
-        System.out.println("6. Rekreasi, Seni, Hiburan & Olahraga (24 Varian)");
+        System.out.println("6. Rekreasi, Seni, Hiburan & Olahraga (25 Varian)");
         System.out.println("7. Industri, Agrikultur & Maritim (6 Varian)");
         System.out.println("8. Transportasi & Infrastruktur Jalan (11 Varian)");
         System.out.println("9. Tempat Ibadah (6 Varian)");
