@@ -200,7 +200,7 @@ public class Kota {
         for (Bangunan b : daftarBangunan) {
             b.jalankanEfekRonde(this);
             if (b.getNama().contains("TPA")) {
-                this.kapasitasSampah += (500 * b.getLevel());
+                this.kapasitasSampah += (1000 * b.getLevel());
             }
         }
 
@@ -223,7 +223,7 @@ public class Kota {
     }
 
     private void prosesEfekPajak() {
-        int hasilHunian = (this.populasi * this.pajakHunian) / 25;
+        int hasilHunian = (this.populasi * this.pajakHunian) / 45;
         int jumlahKomersial = 0;
         int jumlahIndustri = 0;
 
@@ -235,7 +235,7 @@ public class Kota {
             }
         }
 
-        int hasilKomersial = jumlahKomersial * (this.pajakKomersial * 3);
+        int hasilKomersial = jumlahKomersial * (this.pajakKomersial * 5);
         int hasilIndustri = jumlahIndustri * (this.pajakIndustri * 4);
         int totalPajak = hasilHunian + hasilKomersial + hasilIndustri;
 
