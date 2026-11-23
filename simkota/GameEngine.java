@@ -10,9 +10,13 @@ public class GameEngine {
     private static ArrayList<String[]> leaderboard = new ArrayList<>();
 
     public GameEngine(String namaWaliKota, String namaKota) {
+        this(namaWaliKota, namaKota, new Scanner(System.in));
+    }
+
+    public GameEngine(String namaWaliKota, String namaKota, Scanner scanner) {
         WaliKota waliKota = new WaliKota(namaWaliKota);
         this.kota = new Kota(namaKota, waliKota);
-        this.scanner = new Scanner(System.in);
+        this.scanner = scanner;
         this.rondeSekarang = 1;
     }
 
@@ -252,7 +256,7 @@ public class GameEngine {
         System.out.println("4. SMP ($300)                  -> +5 SDM, +3% Bahagia");
         System.out.println("5. SMA ($350)                  -> +6 SDM, +4% Bahagia");
         System.out.println("6. Universitas ($700)          -> +10 SDM, +6% Bahagia");
-        System.out.println("7. Politeknik ($650)           -> +8 SDM, +5% Bahagia");
+        System.out.println("7. Politeknik ($650)           -> +28 SDM, +5% Bahagia");
         System.out.println("8. Perpustakaan Kota ($280)    -> +4 SDM, +5% Bahagia");
         System.out.print("Pilih (1-8): ");
         return switch (bacaAngka()) {
@@ -262,7 +266,7 @@ public class GameEngine {
             case 4 -> new Pendidikan("Sekolah Menengah Pertama", "SMP", 300, 22, 5, 3);
             case 5 -> new Pendidikan("Sekolah Menengah Atas", "SMA", 350, 26, 6, 4);
             case 6 -> new Pendidikan("Universitas", "UNV", 700, 55, 10, 6);
-            case 7 -> new Pendidikan("Politeknik", "PLT", 650, 50, 8, 5);
+            case 7 -> new Pendidikan("Politeknik", "PLT", 650, 50, 28, 5);
             case 8 -> new Pendidikan("Perpustakaan Kota", "PRP", 280, 20, 4, 5);
             default -> null;
         };
