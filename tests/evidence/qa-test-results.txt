@@ -1,0 +1,24 @@
+PASS TC-01 Inisialisasi Game
+[32m[?] Berhasil membangun Politeknik di koordinat (2,2)![0m
+PASS TC-02 Pembangunan Infrastruktur
+[31m[!] Pelabuhan Maritim hanya dapat dibangun di perairan atau tepi laut/sungai![0m
+[32m[?] Berhasil membangun Pelabuhan Maritim di koordinat (2,10)![0m
+PASS TC-03 Validasi Lokasi Pelabuhan
+[32m[?] Berhasil membangun Rumah Pedesaan di koordinat (2,2)![0m
+[32m[?] Berhasil membangun Rumah Pedesaan di koordinat (2,3)![0m
+[32m[?] Rumah Pedesaan (Lv.2) berhasil di-upgrade ke Level 2![0m
+[33m[?] Rumah Pedesaan digusur. Kompensasi dana +$75 masuk ke kas.[0m
+PASS TC-04 Upgrade & Gusur Bangunan
+[32m[$] Pemasukan Pajak Sektoral: +$11[0m (Hunian 5%: $11 | Komersial 10%: $0 | Industri 20%: $0)
+PASS TC-05 Kebijakan Pajak Sektoral
+[32m[?] Berhasil membangun Rumah Pedesaan di koordinat (1,1)![0m
+[32m[?] Berhasil membangun Rumah Pedesaan di koordinat (1,2)![0m
+[32m[?] Berhasil membangun Rumah Pedesaan di koordinat (1,3)![0m
+[32m[?] Berhasil membangun Rumah Pedesaan di koordinat (1,4)![0m
+[32m[?] Berhasil membangun Rumah Pedesaan di koordinat (1,5)![0m
+PASS TC-06 Penalti Utilitas & Sampah TPA
+  BUKTI TC-07: kebahagiaan < 20% dan kas -9978 < 0; kedua cabang Game Over, evaluasi dan leaderboard muncul
+PASS TC-07 Kondisi Kalah (Game Over)
+  BUKTI TC-08: populasi=1115, bahagia=98%, SDM=290, kas=$4041; MENANG pada Ronde 15/15
+PASS TC-08 Kondisi Menang & Leaderboard
+QA RESULT: 8 passed, 0 failed
