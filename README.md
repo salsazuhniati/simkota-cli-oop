@@ -95,7 +95,7 @@ tugas-project-oop/
 
 ## 👥 Tim Pengembang
 
-* **Salsa Zuhniati** (3125510059) — D-3 Teknik Informatika, Politeknik Elektronika Negeri Surabaya (PENS)
-* **Kurnia Hary Trisnandha** (3125510055) — D-3 Teknik Informatika, Politeknik Elektronika Negeri Surabaya (PENS)
-* **Lailatul Farrij** (3125510060) — D-3 Teknik Informatika, Politeknik Elektronika Negeri Surabaya (PENS)
-* **Sheilla Cantika Agne Kania** (3125510066) — D-3 Teknik Informatika, Politeknik Elektronika Negeri Surabaya (PENS)
+* **Salsa Zuhniati** (3125510059) — D3 PJJ Teknik Informatika, Politeknik Elektronika Negeri Surabaya (PENS)
+* **Kurnia Hary Trisnandha** (3125510055) — D3 PJJ Teknik Informatika, Politeknik Elektronika Negeri Surabaya (PENS)
+* **Lailatul Farrij** (3125510060) — D3 PJJ Teknik Informatika, Politeknik Elektronika Negeri Surabaya (PENS)
+* **Sheilla Cantika Agne Kania** (3125510066) — D3 PJJ Teknik Informatika, Politeknik Elektronika Negeri Surabaya (PENS)
