@@ -1,0 +1,530 @@
+Exit code: 0
+
+Masukkan Nama Wali Kota: Masukkan Nama Kota:
+=====================================================================
+  SELAMAT DATANG DI SIMKOTA CLI: ULTIMATE METROPOLIS EDITION
+  Wali Kota: QA | Kota: Kota Uji
+  Target Menang (Ronde 15): Populasi >= 1.000 | Bahagia >= 65% | SDM >= 60
+=====================================================================
+
+=== PETA TATA KOTA KOTA UJI (8x10) ===
+      1    2    3    4    5    6    7    8    9    10
+B1  | [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B2  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B3  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B4  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B5  | [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B6  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B7  | [33m^^^[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B8  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [33m^^^[0m  [34m===[0m |
+Legenda: [ . ] Tanah | [[36m~~~[0m] Sungai | [[34m===[0m] Laut | [[33m^^^[0m] Bukit
+
+=== STATUS KOTA (RONDE 1/15) ===
+Kas Kota    : $4000       | Populasi  : 100 Warga
+Keamanan    : 50 %        | Skor SDM  : 10 Poin
+Pajak Aktif : Hunian 10% | Komersial 10% | Industri 10%
+Kebahagiaan : [#########---] 75%
+Listrik     : [############] 100% (Suplai 30 / Butuh 15 MW)
+Air PDAM    : [############] 100% (Suplai 30 / Butuh 15 m3)
+Sampah TPA  : [####--------] 40% (Beban 100 / Kapasitas 250)
+
+--- MENU AKSI WALI KOTA ---
+1. Bangun Infrastruktur Baru (109 Pilihan)
+2. Upgrade Bangunan di Peta (Lv.1 -> Lv.3)
+3. Gusur / Hancurkan Bangunan (Refund 50%)
+4. Atur Kebijakan Pajak Sektoral (Hunian / Komersial / Industri)
+5. Lihat Rekap Bangunan & Leaderboard
+6. Lewati Giliran (Lanjut ke Ronde Berikutnya)
+Pilih aksi (1-6): Wali Kota memantau perkembangan kota pada ronde ini...
+
+--- LAPORAN AKHIR RONDE 1 ---
+[32m[$] Pemasukan Pajak Sektoral: +$22[0m (Hunian 10%: $22 | Komersial 10%: $0 | Industri 10%: $0)
+
+=== PETA TATA KOTA KOTA UJI (8x10) ===
+      1    2    3    4    5    6    7    8    9    10
+B1  | [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B2  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B3  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B4  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B5  | [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B6  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B7  | [33m^^^[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B8  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [33m^^^[0m  [34m===[0m |
+Legenda: [ . ] Tanah | [[36m~~~[0m] Sungai | [[34m===[0m] Laut | [[33m^^^[0m] Bukit
+
+=== STATUS KOTA (RONDE 2/15) ===
+Kas Kota    : $4022       | Populasi  : 100 Warga
+Keamanan    : 50 %        | Skor SDM  : 10 Poin
+Pajak Aktif : Hunian 10% | Komersial 10% | Industri 10%
+Kebahagiaan : [#########---] 75%
+Listrik     : [############] 100% (Suplai 30 / Butuh 20 MW)
+Air PDAM    : [############] 100% (Suplai 30 / Butuh 20 m3)
+Sampah TPA  : [####--------] 40% (Beban 100 / Kapasitas 250)
+
+--- MENU AKSI WALI KOTA ---
+1. Bangun Infrastruktur Baru (109 Pilihan)
+2. Upgrade Bangunan di Peta (Lv.1 -> Lv.3)
+3. Gusur / Hancurkan Bangunan (Refund 50%)
+4. Atur Kebijakan Pajak Sektoral (Hunian / Komersial / Industri)
+5. Lihat Rekap Bangunan & Leaderboard
+6. Lewati Giliran (Lanjut ke Ronde Berikutnya)
+Pilih aksi (1-6): Wali Kota memantau perkembangan kota pada ronde ini...
+
+--- LAPORAN AKHIR RONDE 2 ---
+[32m[$] Pemasukan Pajak Sektoral: +$22[0m (Hunian 10%: $22 | Komersial 10%: $0 | Industri 10%: $0)
+
+=== PETA TATA KOTA KOTA UJI (8x10) ===
+      1    2    3    4    5    6    7    8    9    10
+B1  | [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B2  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B3  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B4  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B5  | [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B6  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B7  | [33m^^^[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B8  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [33m^^^[0m  [34m===[0m |
+Legenda: [ . ] Tanah | [[36m~~~[0m] Sungai | [[34m===[0m] Laut | [[33m^^^[0m] Bukit
+
+=== STATUS KOTA (RONDE 3/15) ===
+Kas Kota    : $4044       | Populasi  : 100 Warga
+Keamanan    : 50 %        | Skor SDM  : 10 Poin
+Pajak Aktif : Hunian 10% | Komersial 10% | Industri 10%
+Kebahagiaan : [#########---] 75%
+Listrik     : [############] 100% (Suplai 30 / Butuh 20 MW)
+Air PDAM    : [############] 100% (Suplai 30 / Butuh 20 m3)
+Sampah TPA  : [####--------] 40% (Beban 100 / Kapasitas 250)
+
+--- MENU AKSI WALI KOTA ---
+1. Bangun Infrastruktur Baru (109 Pilihan)
+2. Upgrade Bangunan di Peta (Lv.1 -> Lv.3)
+3. Gusur / Hancurkan Bangunan (Refund 50%)
+4. Atur Kebijakan Pajak Sektoral (Hunian / Komersial / Industri)
+5. Lihat Rekap Bangunan & Leaderboard
+6. Lewati Giliran (Lanjut ke Ronde Berikutnya)
+Pilih aksi (1-6): Wali Kota memantau perkembangan kota pada ronde ini...
+
+--- LAPORAN AKHIR RONDE 3 ---
+[32m[$] Pemasukan Pajak Sektoral: +$22[0m (Hunian 10%: $22 | Komersial 10%: $0 | Industri 10%: $0)
+[36m[EVENT] Festival Budaya & Wisata Kota! Kas +$250, Kebahagiaan +4%.[0m
+
+=== PETA TATA KOTA KOTA UJI (8x10) ===
+      1    2    3    4    5    6    7    8    9    10
+B1  | [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B2  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B3  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B4  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B5  | [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B6  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B7  | [33m^^^[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B8  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [33m^^^[0m  [34m===[0m |
+Legenda: [ . ] Tanah | [[36m~~~[0m] Sungai | [[34m===[0m] Laut | [[33m^^^[0m] Bukit
+
+=== STATUS KOTA (RONDE 4/15) ===
+Kas Kota    : $4316       | Populasi  : 100 Warga
+Keamanan    : 50 %        | Skor SDM  : 10 Poin
+Pajak Aktif : Hunian 10% | Komersial 10% | Industri 10%
+Kebahagiaan : [#########---] 79%
+Listrik     : [############] 100% (Suplai 30 / Butuh 20 MW)
+Air PDAM    : [############] 100% (Suplai 30 / Butuh 20 m3)
+Sampah TPA  : [####--------] 40% (Beban 100 / Kapasitas 250)
+
+--- MENU AKSI WALI KOTA ---
+1. Bangun Infrastruktur Baru (109 Pilihan)
+2. Upgrade Bangunan di Peta (Lv.1 -> Lv.3)
+3. Gusur / Hancurkan Bangunan (Refund 50%)
+4. Atur Kebijakan Pajak Sektoral (Hunian / Komersial / Industri)
+5. Lihat Rekap Bangunan & Leaderboard
+6. Lewati Giliran (Lanjut ke Ronde Berikutnya)
+Pilih aksi (1-6): Wali Kota memantau perkembangan kota pada ronde ini...
+
+--- LAPORAN AKHIR RONDE 4 ---
+[32m[$] Pemasukan Pajak Sektoral: +$22[0m (Hunian 10%: $22 | Komersial 10%: $0 | Industri 10%: $0)
+[36m[EVENT] Festival Budaya & Wisata Kota! Kas +$250, Kebahagiaan +4%.[0m
+
+=== PETA TATA KOTA KOTA UJI (8x10) ===
+      1    2    3    4    5    6    7    8    9    10
+B1  | [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B2  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B3  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B4  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B5  | [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B6  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B7  | [33m^^^[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B8  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [33m^^^[0m  [34m===[0m |
+Legenda: [ . ] Tanah | [[36m~~~[0m] Sungai | [[34m===[0m] Laut | [[33m^^^[0m] Bukit
+
+=== STATUS KOTA (RONDE 5/15) ===
+Kas Kota    : $4588       | Populasi  : 100 Warga
+Keamanan    : 50 %        | Skor SDM  : 10 Poin
+Pajak Aktif : Hunian 10% | Komersial 10% | Industri 10%
+Kebahagiaan : [#########---] 83%
+Listrik     : [############] 100% (Suplai 30 / Butuh 20 MW)
+Air PDAM    : [############] 100% (Suplai 30 / Butuh 20 m3)
+Sampah TPA  : [####--------] 40% (Beban 100 / Kapasitas 250)
+
+--- MENU AKSI WALI KOTA ---
+1. Bangun Infrastruktur Baru (109 Pilihan)
+2. Upgrade Bangunan di Peta (Lv.1 -> Lv.3)
+3. Gusur / Hancurkan Bangunan (Refund 50%)
+4. Atur Kebijakan Pajak Sektoral (Hunian / Komersial / Industri)
+5. Lihat Rekap Bangunan & Leaderboard
+6. Lewati Giliran (Lanjut ke Ronde Berikutnya)
+Pilih aksi (1-6): Wali Kota memantau perkembangan kota pada ronde ini...
+
+--- LAPORAN AKHIR RONDE 5 ---
+[32m[$] Pemasukan Pajak Sektoral: +$22[0m (Hunian 10%: $22 | Komersial 10%: $0 | Industri 10%: $0)
+
+=== PETA TATA KOTA KOTA UJI (8x10) ===
+      1    2    3    4    5    6    7    8    9    10
+B1  | [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B2  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B3  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B4  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B5  | [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B6  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B7  | [33m^^^[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B8  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [33m^^^[0m  [34m===[0m |
+Legenda: [ . ] Tanah | [[36m~~~[0m] Sungai | [[34m===[0m] Laut | [[33m^^^[0m] Bukit
+
+=== STATUS KOTA (RONDE 6/15) ===
+Kas Kota    : $4610       | Populasi  : 100 Warga
+Keamanan    : 50 %        | Skor SDM  : 10 Poin
+Pajak Aktif : Hunian 10% | Komersial 10% | Industri 10%
+Kebahagiaan : [#########---] 83%
+Listrik     : [############] 100% (Suplai 30 / Butuh 20 MW)
+Air PDAM    : [############] 100% (Suplai 30 / Butuh 20 m3)
+Sampah TPA  : [####--------] 40% (Beban 100 / Kapasitas 250)
+
+--- MENU AKSI WALI KOTA ---
+1. Bangun Infrastruktur Baru (109 Pilihan)
+2. Upgrade Bangunan di Peta (Lv.1 -> Lv.3)
+3. Gusur / Hancurkan Bangunan (Refund 50%)
+4. Atur Kebijakan Pajak Sektoral (Hunian / Komersial / Industri)
+5. Lihat Rekap Bangunan & Leaderboard
+6. Lewati Giliran (Lanjut ke Ronde Berikutnya)
+Pilih aksi (1-6): Wali Kota memantau perkembangan kota pada ronde ini...
+
+--- LAPORAN AKHIR RONDE 6 ---
+[32m[$] Pemasukan Pajak Sektoral: +$22[0m (Hunian 10%: $22 | Komersial 10%: $0 | Industri 10%: $0)
+
+=== PETA TATA KOTA KOTA UJI (8x10) ===
+      1    2    3    4    5    6    7    8    9    10
+B1  | [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B2  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B3  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B4  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B5  | [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B6  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B7  | [33m^^^[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B8  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [33m^^^[0m  [34m===[0m |
+Legenda: [ . ] Tanah | [[36m~~~[0m] Sungai | [[34m===[0m] Laut | [[33m^^^[0m] Bukit
+
+=== STATUS KOTA (RONDE 7/15) ===
+Kas Kota    : $4632       | Populasi  : 100 Warga
+Keamanan    : 50 %        | Skor SDM  : 10 Poin
+Pajak Aktif : Hunian 10% | Komersial 10% | Industri 10%
+Kebahagiaan : [#########---] 83%
+Listrik     : [############] 100% (Suplai 30 / Butuh 20 MW)
+Air PDAM    : [############] 100% (Suplai 30 / Butuh 20 m3)
+Sampah TPA  : [####--------] 40% (Beban 100 / Kapasitas 250)
+
+--- MENU AKSI WALI KOTA ---
+1. Bangun Infrastruktur Baru (109 Pilihan)
+2. Upgrade Bangunan di Peta (Lv.1 -> Lv.3)
+3. Gusur / Hancurkan Bangunan (Refund 50%)
+4. Atur Kebijakan Pajak Sektoral (Hunian / Komersial / Industri)
+5. Lihat Rekap Bangunan & Leaderboard
+6. Lewati Giliran (Lanjut ke Ronde Berikutnya)
+Pilih aksi (1-6): Wali Kota memantau perkembangan kota pada ronde ini...
+
+--- LAPORAN AKHIR RONDE 7 ---
+[32m[$] Pemasukan Pajak Sektoral: +$22[0m (Hunian 10%: $22 | Komersial 10%: $0 | Industri 10%: $0)
+
+=== PETA TATA KOTA KOTA UJI (8x10) ===
+      1    2    3    4    5    6    7    8    9    10
+B1  | [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B2  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B3  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B4  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B5  | [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B6  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B7  | [33m^^^[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B8  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [33m^^^[0m  [34m===[0m |
+Legenda: [ . ] Tanah | [[36m~~~[0m] Sungai | [[34m===[0m] Laut | [[33m^^^[0m] Bukit
+
+=== STATUS KOTA (RONDE 8/15) ===
+Kas Kota    : $4654       | Populasi  : 100 Warga
+Keamanan    : 50 %        | Skor SDM  : 10 Poin
+Pajak Aktif : Hunian 10% | Komersial 10% | Industri 10%
+Kebahagiaan : [#########---] 83%
+Listrik     : [############] 100% (Suplai 30 / Butuh 20 MW)
+Air PDAM    : [############] 100% (Suplai 30 / Butuh 20 m3)
+Sampah TPA  : [####--------] 40% (Beban 100 / Kapasitas 250)
+
+--- MENU AKSI WALI KOTA ---
+1. Bangun Infrastruktur Baru (109 Pilihan)
+2. Upgrade Bangunan di Peta (Lv.1 -> Lv.3)
+3. Gusur / Hancurkan Bangunan (Refund 50%)
+4. Atur Kebijakan Pajak Sektoral (Hunian / Komersial / Industri)
+5. Lihat Rekap Bangunan & Leaderboard
+6. Lewati Giliran (Lanjut ke Ronde Berikutnya)
+Pilih aksi (1-6): Wali Kota memantau perkembangan kota pada ronde ini...
+
+--- LAPORAN AKHIR RONDE 8 ---
+[32m[$] Pemasukan Pajak Sektoral: +$22[0m (Hunian 10%: $22 | Komersial 10%: $0 | Industri 10%: $0)
+[32m[EVENT] Investor & Wisatawan Berdatangan! Populasi +45 Warga.[0m
+
+=== PETA TATA KOTA KOTA UJI (8x10) ===
+      1    2    3    4    5    6    7    8    9    10
+B1  | [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B2  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B3  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B4  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B5  | [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B6  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B7  | [33m^^^[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B8  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [33m^^^[0m  [34m===[0m |
+Legenda: [ . ] Tanah | [[36m~~~[0m] Sungai | [[34m===[0m] Laut | [[33m^^^[0m] Bukit
+
+=== STATUS KOTA (RONDE 9/15) ===
+Kas Kota    : $4676       | Populasi  : 145 Warga
+Keamanan    : 50 %        | Skor SDM  : 10 Poin
+Pajak Aktif : Hunian 10% | Komersial 10% | Industri 10%
+Kebahagiaan : [#########---] 83%
+Listrik     : [############] 100% (Suplai 30 / Butuh 20 MW)
+Air PDAM    : [############] 100% (Suplai 30 / Butuh 20 m3)
+Sampah TPA  : [######------] 58% (Beban 145 / Kapasitas 250)
+
+--- MENU AKSI WALI KOTA ---
+1. Bangun Infrastruktur Baru (109 Pilihan)
+2. Upgrade Bangunan di Peta (Lv.1 -> Lv.3)
+3. Gusur / Hancurkan Bangunan (Refund 50%)
+4. Atur Kebijakan Pajak Sektoral (Hunian / Komersial / Industri)
+5. Lihat Rekap Bangunan & Leaderboard
+6. Lewati Giliran (Lanjut ke Ronde Berikutnya)
+Pilih aksi (1-6): Wali Kota memantau perkembangan kota pada ronde ini...
+
+--- LAPORAN AKHIR RONDE 9 ---
+[32m[$] Pemasukan Pajak Sektoral: +$32[0m (Hunian 10%: $32 | Komersial 10%: $0 | Industri 10%: $0)
+
+=== PETA TATA KOTA KOTA UJI (8x10) ===
+      1    2    3    4    5    6    7    8    9    10
+B1  | [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B2  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B3  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B4  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B5  | [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B6  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B7  | [33m^^^[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B8  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [33m^^^[0m  [34m===[0m |
+Legenda: [ . ] Tanah | [[36m~~~[0m] Sungai | [[34m===[0m] Laut | [[33m^^^[0m] Bukit
+
+=== STATUS KOTA (RONDE 10/15) ===
+Kas Kota    : $4708       | Populasi  : 145 Warga
+Keamanan    : 50 %        | Skor SDM  : 10 Poin
+Pajak Aktif : Hunian 10% | Komersial 10% | Industri 10%
+Kebahagiaan : [#########---] 83%
+Listrik     : [############] 100% (Suplai 30 / Butuh 22 MW)
+Air PDAM    : [############] 100% (Suplai 30 / Butuh 22 m3)
+Sampah TPA  : [######------] 58% (Beban 145 / Kapasitas 250)
+
+--- MENU AKSI WALI KOTA ---
+1. Bangun Infrastruktur Baru (109 Pilihan)
+2. Upgrade Bangunan di Peta (Lv.1 -> Lv.3)
+3. Gusur / Hancurkan Bangunan (Refund 50%)
+4. Atur Kebijakan Pajak Sektoral (Hunian / Komersial / Industri)
+5. Lihat Rekap Bangunan & Leaderboard
+6. Lewati Giliran (Lanjut ke Ronde Berikutnya)
+Pilih aksi (1-6): Wali Kota memantau perkembangan kota pada ronde ini...
+
+--- LAPORAN AKHIR RONDE 10 ---
+[32m[$] Pemasukan Pajak Sektoral: +$32[0m (Hunian 10%: $32 | Komersial 10%: $0 | Industri 10%: $0)
+[33m[EVENT] Hujan Lebat & Perbaikan Drainase! Biaya darurat -$150.[0m
+
+=== PETA TATA KOTA KOTA UJI (8x10) ===
+      1    2    3    4    5    6    7    8    9    10
+B1  | [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B2  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B3  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B4  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B5  | [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B6  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B7  | [33m^^^[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B8  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [33m^^^[0m  [34m===[0m |
+Legenda: [ . ] Tanah | [[36m~~~[0m] Sungai | [[34m===[0m] Laut | [[33m^^^[0m] Bukit
+
+=== STATUS KOTA (RONDE 11/15) ===
+Kas Kota    : $4590       | Populasi  : 145 Warga
+Keamanan    : 50 %        | Skor SDM  : 10 Poin
+Pajak Aktif : Hunian 10% | Komersial 10% | Industri 10%
+Kebahagiaan : [#########---] 83%
+Listrik     : [############] 100% (Suplai 30 / Butuh 22 MW)
+Air PDAM    : [############] 100% (Suplai 30 / Butuh 22 m3)
+Sampah TPA  : [######------] 58% (Beban 145 / Kapasitas 250)
+
+--- MENU AKSI WALI KOTA ---
+1. Bangun Infrastruktur Baru (109 Pilihan)
+2. Upgrade Bangunan di Peta (Lv.1 -> Lv.3)
+3. Gusur / Hancurkan Bangunan (Refund 50%)
+4. Atur Kebijakan Pajak Sektoral (Hunian / Komersial / Industri)
+5. Lihat Rekap Bangunan & Leaderboard
+6. Lewati Giliran (Lanjut ke Ronde Berikutnya)
+Pilih aksi (1-6): Wali Kota memantau perkembangan kota pada ronde ini...
+
+--- LAPORAN AKHIR RONDE 11 ---
+[32m[$] Pemasukan Pajak Sektoral: +$32[0m (Hunian 10%: $32 | Komersial 10%: $0 | Industri 10%: $0)
+
+=== PETA TATA KOTA KOTA UJI (8x10) ===
+      1    2    3    4    5    6    7    8    9    10
+B1  | [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B2  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B3  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B4  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B5  | [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B6  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B7  | [33m^^^[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B8  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [33m^^^[0m  [34m===[0m |
+Legenda: [ . ] Tanah | [[36m~~~[0m] Sungai | [[34m===[0m] Laut | [[33m^^^[0m] Bukit
+
+=== STATUS KOTA (RONDE 12/15) ===
+Kas Kota    : $4622       | Populasi  : 145 Warga
+Keamanan    : 50 %        | Skor SDM  : 10 Poin
+Pajak Aktif : Hunian 10% | Komersial 10% | Industri 10%
+Kebahagiaan : [#########---] 83%
+Listrik     : [############] 100% (Suplai 30 / Butuh 22 MW)
+Air PDAM    : [############] 100% (Suplai 30 / Butuh 22 m3)
+Sampah TPA  : [######------] 58% (Beban 145 / Kapasitas 250)
+
+--- MENU AKSI WALI KOTA ---
+1. Bangun Infrastruktur Baru (109 Pilihan)
+2. Upgrade Bangunan di Peta (Lv.1 -> Lv.3)
+3. Gusur / Hancurkan Bangunan (Refund 50%)
+4. Atur Kebijakan Pajak Sektoral (Hunian / Komersial / Industri)
+5. Lihat Rekap Bangunan & Leaderboard
+6. Lewati Giliran (Lanjut ke Ronde Berikutnya)
+Pilih aksi (1-6): Wali Kota memantau perkembangan kota pada ronde ini...
+
+--- LAPORAN AKHIR RONDE 12 ---
+[32m[$] Pemasukan Pajak Sektoral: +$32[0m (Hunian 10%: $32 | Komersial 10%: $0 | Industri 10%: $0)
+[36m[EVENT] Festival Budaya & Wisata Kota! Kas +$250, Kebahagiaan +4%.[0m
+
+=== PETA TATA KOTA KOTA UJI (8x10) ===
+      1    2    3    4    5    6    7    8    9    10
+B1  | [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B2  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B3  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B4  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B5  | [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B6  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B7  | [33m^^^[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B8  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [33m^^^[0m  [34m===[0m |
+Legenda: [ . ] Tanah | [[36m~~~[0m] Sungai | [[34m===[0m] Laut | [[33m^^^[0m] Bukit
+
+=== STATUS KOTA (RONDE 13/15) ===
+Kas Kota    : $4904       | Populasi  : 145 Warga
+Keamanan    : 50 %        | Skor SDM  : 10 Poin
+Pajak Aktif : Hunian 10% | Komersial 10% | Industri 10%
+Kebahagiaan : [##########--] 87%
+Listrik     : [############] 100% (Suplai 30 / Butuh 22 MW)
+Air PDAM    : [############] 100% (Suplai 30 / Butuh 22 m3)
+Sampah TPA  : [######------] 58% (Beban 145 / Kapasitas 250)
+
+--- MENU AKSI WALI KOTA ---
+1. Bangun Infrastruktur Baru (109 Pilihan)
+2. Upgrade Bangunan di Peta (Lv.1 -> Lv.3)
+3. Gusur / Hancurkan Bangunan (Refund 50%)
+4. Atur Kebijakan Pajak Sektoral (Hunian / Komersial / Industri)
+5. Lihat Rekap Bangunan & Leaderboard
+6. Lewati Giliran (Lanjut ke Ronde Berikutnya)
+Pilih aksi (1-6): Wali Kota memantau perkembangan kota pada ronde ini...
+
+--- LAPORAN AKHIR RONDE 13 ---
+[32m[$] Pemasukan Pajak Sektoral: +$32[0m (Hunian 10%: $32 | Komersial 10%: $0 | Industri 10%: $0)
+[36m[EVENT] Festival Budaya & Wisata Kota! Kas +$250, Kebahagiaan +4%.[0m
+
+=== PETA TATA KOTA KOTA UJI (8x10) ===
+      1    2    3    4    5    6    7    8    9    10
+B1  | [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B2  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B3  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B4  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B5  | [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B6  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B7  | [33m^^^[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B8  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [33m^^^[0m  [34m===[0m |
+Legenda: [ . ] Tanah | [[36m~~~[0m] Sungai | [[34m===[0m] Laut | [[33m^^^[0m] Bukit
+
+=== STATUS KOTA (RONDE 14/15) ===
+Kas Kota    : $5186       | Populasi  : 145 Warga
+Keamanan    : 50 %        | Skor SDM  : 10 Poin
+Pajak Aktif : Hunian 10% | Komersial 10% | Industri 10%
+Kebahagiaan : [##########--] 91%
+Listrik     : [############] 100% (Suplai 30 / Butuh 22 MW)
+Air PDAM    : [############] 100% (Suplai 30 / Butuh 22 m3)
+Sampah TPA  : [######------] 58% (Beban 145 / Kapasitas 250)
+
+--- MENU AKSI WALI KOTA ---
+1. Bangun Infrastruktur Baru (109 Pilihan)
+2. Upgrade Bangunan di Peta (Lv.1 -> Lv.3)
+3. Gusur / Hancurkan Bangunan (Refund 50%)
+4. Atur Kebijakan Pajak Sektoral (Hunian / Komersial / Industri)
+5. Lihat Rekap Bangunan & Leaderboard
+6. Lewati Giliran (Lanjut ke Ronde Berikutnya)
+Pilih aksi (1-6): Wali Kota memantau perkembangan kota pada ronde ini...
+
+--- LAPORAN AKHIR RONDE 14 ---
+[32m[$] Pemasukan Pajak Sektoral: +$32[0m (Hunian 10%: $32 | Komersial 10%: $0 | Industri 10%: $0)
+[36m[EVENT] Festival Budaya & Wisata Kota! Kas +$250, Kebahagiaan +4%.[0m
+
+=== PETA TATA KOTA KOTA UJI (8x10) ===
+      1    2    3    4    5    6    7    8    9    10
+B1  | [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B2  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B3  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B4  | [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B5  | [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B6  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [36m~~~[0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [34m===[0m |
+B7  | [33m^^^[0m  [90m . [0m  [33m^^^[0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [34m===[0m |
+B8  | [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [90m . [0m  [33m^^^[0m  [33m^^^[0m  [90m . [0m  [33m^^^[0m  [34m===[0m |
+Legenda: [ . ] Tanah | [[36m~~~[0m] Sungai | [[34m===[0m] Laut | [[33m^^^[0m] Bukit
+
+=== STATUS KOTA (RONDE 15/15) ===
+Kas Kota    : $5468       | Populasi  : 145 Warga
+Keamanan    : 50 %        | Skor SDM  : 10 Poin
+Pajak Aktif : Hunian 10% | Komersial 10% | Industri 10%
+Kebahagiaan : [###########-] 95%
+Listrik     : [############] 100% (Suplai 30 / Butuh 22 MW)
+Air PDAM    : [############] 100% (Suplai 30 / Butuh 22 m3)
+Sampah TPA  : [######------] 58% (Beban 145 / Kapasitas 250)
+
+--- MENU AKSI WALI KOTA ---
+1. Bangun Infrastruktur Baru (109 Pilihan)
+2. Upgrade Bangunan di Peta (Lv.1 -> Lv.3)
+3. Gusur / Hancurkan Bangunan (Refund 50%)
+4. Atur Kebijakan Pajak Sektoral (Hunian / Komersial / Industri)
+5. Lihat Rekap Bangunan & Leaderboard
+6. Lewati Giliran (Lanjut ke Ronde Berikutnya)
+Pilih aksi (1-6): Wali Kota memantau perkembangan kota pada ronde ini...
+
+--- LAPORAN AKHIR RONDE 15 ---
+[32m[$] Pemasukan Pajak Sektoral: +$32[0m (Hunian 10%: $32 | Komersial 10%: $0 | Industri 10%: $0)
+[33m[EVENT] Hujan Lebat & Perbaikan Drainase! Biaya darurat -$150.[0m
+
+=====================================================================
+                      EVALUASI AKHIR KEPEMIMPINAN
+=====================================================================
+
+=== REKAP INFRASTRUKTUR TERBANGUN (0 Unit) ===
+Belum ada infrastruktur yang dibangun.
+---------------------------------------------------------------------
+Status Akhir  : [31mKALAH / GAGAL TARGET[0m
+Wali Kota     : QA (Kota Uji)
+Statistik     : Populasi 145 | Bahagia 95% | SDM 10 | Kas $5350
+Skor Akhir    : 6590 Poin
+Gelar         : Wali Kota Kurang Ambisius (Target Gagal)
+=====================================================================
+
+=== PAPAN PERINGKAT (LEADERBOARD) WALI KOTA ===
+#1 | QA              | Kota: Kota Uji       | Skor:   6590 | Wali Kota Kurang Ambisius (Target Gagal)
+
+Ingin bermain lagi dengan kota baru? (y/n): Terima kasih telah bermain SimKota CLI!

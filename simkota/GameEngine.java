@@ -10,9 +10,13 @@ public class GameEngine {
     private static ArrayList<String[]> leaderboard = new ArrayList<>();
 
     public GameEngine(String namaWaliKota, String namaKota) {
+        this(namaWaliKota, namaKota, new Scanner(System.in));
+    }
+
+    public GameEngine(String namaWaliKota, String namaKota, Scanner scanner) {
         WaliKota waliKota = new WaliKota(namaWaliKota);
         this.kota = new Kota(namaKota, waliKota);
-        this.scanner = new Scanner(System.in);
+        this.scanner = scanner;
         this.rondeSekarang = 1;
     }
 
@@ -165,7 +169,7 @@ public class GameEngine {
         System.out.println("4. Perumahan Menengah ($400)   -> +70 Warga, +$110 Pajak");
         System.out.println("5. Perumahan Kaya Raya ($650)  -> +50 Warga, +$240 Pajak");
         System.out.println("6. Kawasan Villa ($800)        -> +25 Warga, +$300 Pajak, +5% Bahagia");
-        System.out.println("7. Apartemen Bertingkat ($900) -> +180 Warga, +$280 Pajak");
+        System.out.println("7. Apartemen Bertingkat ($900) -> +50 Warga, +$280 Pajak");
         System.out.println("8. Hotel Bintang Lima ($950)   -> +40 Warga, +$360 Kas, +4% Bahagia");
         System.out.print("Pilih (1-8): ");
         return switch (bacaAngka()) {
@@ -175,7 +179,7 @@ public class GameEngine {
             case 4 -> new Hunian("Perumahan Menengah", "HMN", 400, 30, 70, 110, 16, 16);
             case 5 -> new Hunian("Perumahan Kaya Raya", "HKY", 650, 50, 50, 240, 25, 20);
             case 6 -> new Hunian("Kawasan Villa", "VLA", 800, 60, 25, 300, 20, 25);
-            case 7 -> new Hunian("Apartemen Bertingkat", "APR", 900, 75, 180, 280, 35, 35);
+            case 7 -> new Hunian("Apartemen Bertingkat", "APR", 900, 75, 50, 280, 35, 35);
             case 8 -> new Hunian("Hotel Bintang Lima", "HTL", 950, 80, 40, 360, 30, 30);
             default -> null;
         };
@@ -191,7 +195,7 @@ public class GameEngine {
         System.out.println("6. Instalasi Air PDAM ($350)           -> +60 m3 Air Bersih, +2% Bahagia");
         System.out.println("7. Instalasi Pengolahan Air/WTP ($750) -> +160 m3 Air Bersih, +3% Bahagia");
         System.out.println("8. Pom Bensin / SPBU ($300)            -> +$100 Kas/ronde");
-        System.out.println("9. TPA Pembuangan Akhir ($350)         -> +500 Kapasitas Sampah, -2% Bahagia");
+        System.out.println("9. TPA Pembuangan Akhir ($350)         -> +1000 Kapasitas Sampah, -2% Bahagia");
         System.out.println("10. Air Purifier Kota ($300)           -> +5% Bahagia (Udara Bersih)");
         System.out.print("Pilih (1-10): ");
         return switch (bacaAngka()) {
@@ -246,24 +250,24 @@ public class GameEngine {
 
     private Bangunan menuPendidikan() {
         System.out.println("\n-- 4. PENDIDIKAN & RISET --");
-        System.out.println("1. Daycare Anak ($180)         -> +5 SDM, +4% Bahagia");
-        System.out.println("2. Sekolah PAUD & TK ($200)    -> +6 SDM, +4% Bahagia");
-        System.out.println("3. Sekolah Dasar / SD ($250)   -> +10 SDM, +3% Bahagia");
-        System.out.println("4. SMP ($300)                  -> +14 SDM, +3% Bahagia");
-        System.out.println("5. SMA ($350)                  -> +18 SDM, +4% Bahagia");
-        System.out.println("6. Universitas ($700)          -> +32 SDM, +6% Bahagia");
+        System.out.println("1. Daycare Anak ($180)         -> +2 SDM, +4% Bahagia");
+        System.out.println("2. Sekolah PAUD & TK ($200)    -> +2 SDM, +4% Bahagia");
+        System.out.println("3. Sekolah Dasar / SD ($250)   -> +4 SDM, +3% Bahagia");
+        System.out.println("4. SMP ($300)                  -> +5 SDM, +3% Bahagia");
+        System.out.println("5. SMA ($350)                  -> +6 SDM, +4% Bahagia");
+        System.out.println("6. Universitas ($700)          -> +10 SDM, +6% Bahagia");
         System.out.println("7. Politeknik ($650)           -> +28 SDM, +5% Bahagia");
-        System.out.println("8. Perpustakaan Kota ($280)    -> +12 SDM, +5% Bahagia");
+        System.out.println("8. Perpustakaan Kota ($280)    -> +4 SDM, +5% Bahagia");
         System.out.print("Pilih (1-8): ");
         return switch (bacaAngka()) {
-            case 1 -> new Pendidikan("Daycare Anak", "DYC", 180, 12, 5, 4);
-            case 2 -> new Pendidikan("Sekolah PAUD & TK", "PUD", 200, 15, 6, 4);
-            case 3 -> new Pendidikan("Sekolah Dasar", "SDN", 250, 18, 10, 3);
-            case 4 -> new Pendidikan("Sekolah Menengah Pertama", "SMP", 300, 22, 14, 3);
-            case 5 -> new Pendidikan("Sekolah Menengah Atas", "SMA", 350, 26, 18, 4);
-            case 6 -> new Pendidikan("Universitas", "UNV", 700, 55, 32, 6);
+            case 1 -> new Pendidikan("Daycare Anak", "DYC", 180, 12, 2, 4);
+            case 2 -> new Pendidikan("Sekolah PAUD & TK", "PUD", 200, 15, 2, 4);
+            case 3 -> new Pendidikan("Sekolah Dasar", "SDN", 250, 18, 4, 3);
+            case 4 -> new Pendidikan("Sekolah Menengah Pertama", "SMP", 300, 22, 5, 3);
+            case 5 -> new Pendidikan("Sekolah Menengah Atas", "SMA", 350, 26, 6, 4);
+            case 6 -> new Pendidikan("Universitas", "UNV", 700, 55, 10, 6);
             case 7 -> new Pendidikan("Politeknik", "PLT", 650, 50, 28, 5);
-            case 8 -> new Pendidikan("Perpustakaan Kota", "PRP", 280, 20, 12, 5);
+            case 8 -> new Pendidikan("Perpustakaan Kota", "PRP", 280, 20, 4, 5);
             default -> null;
         };
     }
@@ -375,9 +379,9 @@ public class GameEngine {
         System.out.println("6. Terminal Bus ($380)        -> +45 Warga, +$115 Tiket");
         System.out.println("7. Pangkalan Taksi ($220)     -> +25 Warga, +$65 Tiket");
         System.out.println("8. Rel Kereta ($300)          -> +30 Warga, +$75 Tiket");
-        System.out.println("9. Stasiun Kereta Api ($550)  -> +65 Warga, +$170 Tiket");
-        System.out.println("10. Jalur Kereta Cepat ($800) -> +100 Warga, +$260 Tiket");
-        System.out.println("11. Bandara ($1000)           -> +140 Warga, +$380 Tiket");
+        System.out.println("9. Stasiun Kereta Api ($550)  -> +15 Warga, +$170 Tiket");
+        System.out.println("10. Jalur Kereta Cepat ($800) -> +25 Warga, +$260 Tiket");
+        System.out.println("11. Bandara ($1000)           -> +35 Warga, +$380 Tiket");
         System.out.print("Pilih (1-11): ");
         return switch (bacaAngka()) {
             case 1 -> new Transportasi("Jalan Raya", "JLN", 120, 8, 10, 20);
@@ -388,9 +392,9 @@ public class GameEngine {
             case 6 -> new Transportasi("Terminal Bus", "TRM", 380, 28, 45, 115);
             case 7 -> new Transportasi("Pangkalan Taksi", "TKS", 220, 16, 25, 65);
             case 8 -> new Transportasi("Rel Kereta", "REL", 300, 22, 30, 75);
-            case 9 -> new Transportasi("Stasiun Kereta Api", "STS", 550, 45, 65, 170);
-            case 10 -> new Transportasi("Jalur Kereta Cepat", "KCP", 800, 65, 100, 260);
-            case 11 -> new Transportasi("Bandara Internasional", "BDR", 1000, 90, 140, 380);
+            case 9 -> new Transportasi("Stasiun Kereta Api", "STS", 550, 45, 15, 170);
+            case 10 -> new Transportasi("Jalur Kereta Cepat", "KCP", 800, 65, 25, 260);
+            case 11 -> new Transportasi("Bandara Internasional", "BDR", 1000, 90, 35, 380);
             default -> null;
         };
     }
